@@ -1,5 +1,5 @@
 /* ==========================================================================
-   HỌC TIẾNG TRUNG CÙNG CÔ — Design tokens & core styles
+   HỌC TIẾNG TRUNG CÙNG CÔ ZHOU— Design tokens & core styles
    Palette: giấy dó ấm (paper), mực đen (ink), son triện (seal-red), lam chàm (indigo)
    ========================================================================== */
 
@@ -329,6 +329,61 @@ section{ padding: 52px 0; }
 .empty-note{
   background: var(--paper-card); border: 1px dashed var(--line); border-radius: var(--radius);
   padding: 18px 20px; font-size: 13.5px; color: var(--ink-soft); font-family: var(--font-mono);
+}
+
+/* ========================================
+   SUB-FILTER ROW
+   ======================================== */
+.sub-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e8eaed;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+.sub-filter-row .sub-chip {
+  background: #e8eaed;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  color: #555;
+}
+
+.sub-filter-row .sub-chip:hover {
+  background: #d2d5d8;
+  transform: translateY(-1px);
+}
+
+.sub-filter-row .sub-chip.active {
+  background: #1a1a2e;
+  color: white;
+}
+
+.sub-filter-row .sub-chip.current {
+  background: #9C3626;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sub-filter-row {
+    padding: 10px 12px;
+    gap: 6px;
+  }
+  
+  .sub-filter-row .sub-chip {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
 }
 
 /* ==========================================================================
