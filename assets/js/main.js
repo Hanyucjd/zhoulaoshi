@@ -55,13 +55,15 @@ function closeModal(){
 }
 
 /* ---------- Trang Giáo trình ---------- */
-function renderCourses(){
+function renderCourses() {
   const root = document.getElementById("course-grid");
-  if(!root) return;
-  if(!CONTENT.courses.length){
+  if (!root) return;
+  
+  if (!CONTENT.courses.length) {
     root.innerHTML = `<div class="empty-note">Chưa có khoá học nào. Thêm khoá học trong assets/js/data.js</div>`;
     return;
   }
+
   root.innerHTML = CONTENT.courses.map(c => `
     <article class="course-card" data-category="${c.category}">
       <div class="course-top">
@@ -74,7 +76,7 @@ function renderCourses(){
         ${c.materials.map(m => `
           <li>
             <a class="material-link" href="${m.url}" target="_blank" rel="noopener">
-              <span class="material-icon">${(m.type||"PDF").slice(0,3)}</span>
+              <span class="material-icon">${(m.type || "PDF").slice(0, 3)}</span>
               <span class="fname">${m.label}</span>
               <span class="ftag">Xem / tải</span>
             </a>
@@ -92,16 +94,65 @@ function renderCourses(){
     </article>
   `).join("");
 
-  // Filter chips
+  // 👇 XỬ LÝ FILTER CHIPS (cấp 1)
   const chips = document.querySelectorAll(".chip[data-filter]");
-  chips.forEach(chip => chip.addEventListener("click", () => {
-    chips.forEach(c => c.classList.remove("active"));
-    chip.classList.add("active");
-    const val = chip.dataset.filter;
-    document.querySelectorAll(".course-card").forEach(card => {
-      card.style.display = (val === "all" || card.dataset.category === val) ? "" : "none";
+  chips.forEach(chip => {
+    chip.addEventListener("click", function() {
+      // Xóa active của tất cả chip cấp 1
+      chips.forEach(c => c.classList.remove("active"));
+      this.classList.add("active");
+      
+      const val = this.dataset.filter;
+      const hasSub = this.dataset.hasSub === "true";
+      
+      // 👇 Nếu có sub-filter (HSK 2.0)
+      if (hasSub) {
+        // Hiện sub-filter
+        const subFilter = document.getElementById("sub-filter-hsk20");
+        if (subFilter) {
+          subFilter.style.display = "flex";
+          // Reset sub-chip active
+          subFilter.querySelectorAll(".sub-chip").forEach(c => c.classList.remove("active"));
+        }
+        // Hiển thị tất cả khóa học HSK 2.0 (bao gồm các cấp)
+        document.querySelectorAll(".course-card").forEach(card => {
+          const category = card.dataset.category;
+          // Hiển thị nếu category bắt đầu bằng "Giáo trình chuẩn HSK" và có chứa "2.0"
+          if (category && category.includes("Giáo trình chuẩn HSK") && category.includes("2.0")) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      } else {
+        // Ẩn sub-filter
+        const subFilter = document.getElementById("sub-filter-hsk20");
+        if (subFilter) subFilter.style.display = "none";
+        
+        // Lọc bình thường
+        document.querySelectorAll(".course-card").forEach(card => {
+          card.style.display = (val === "all" || card.dataset.category === val) ? "" : "none";
+        });
+      }
     });
-  }));
+  });
+
+  // 👇 XỬ LÝ SUB-FILTER CHIPS (cấp 2)
+  const subChips = document.querySelectorAll(".sub-chip");
+  subChips.forEach(chip => {
+    chip.addEventListener("click", function() {
+      // Xóa active của sub-chip khác
+      subChips.forEach(c => c.classList.remove("active"));
+      this.classList.add("active");
+      
+      const val = this.dataset.filter;
+      
+      // Lọc theo sub-filter
+      document.querySelectorAll(".course-card").forEach(card => {
+        card.style.display = (card.dataset.category === val) ? "" : "none";
+      });
+    });
+  });
 }
 
 /* ---------- Trang Trò chơi ---------- */
