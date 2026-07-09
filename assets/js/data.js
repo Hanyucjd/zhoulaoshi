@@ -19,112 +19,151 @@ const CONTENT = {
           "Giáo trình Boya"
           "Giáo trình Msutong"
      ------------------------------------------------------------------ */
+const CONTENT = {
   courses: [
+    // === CÁC KHÓA HỌC HSK 2.0 (CẤP ĐỘ CỤ THỂ) ===
     {
-      id: "hsk2-0-HSK-1",
-      title: "HSK 2.0 — HSK 1",
-      category: "Giáo trình chuẩn HSK 2.0",
-      description: "Ngữ âm, 150 từ vựng nền tảng và các mẫu câu giao tiếp cơ bản.",
+      id: "hsk1",
+      title: "HSK 1 — Giáo trình chuẩn HSK 2.0",
+      category: "Giáo trình chuẩn HSK1 2.0",  // TRÙNG với sub-filter
+      description: "150 từ vựng cơ bản, ngữ âm và mẫu câu giao tiếp đơn giản.",
       materials: [
-        {
-          label: "Giáo trình chính HSK1 2.0",
-          type: "PDF",
-          // Dán link Google Drive dạng "preview" hoặc link file .pdf trực tiếp vào đây
-          url: "https://drive.google.com/file/d/1gQ07RFAIFY5YajWXoS57okMxe4-B1XA0/preview"
-        },
-        {
-          label: "Sách bài tập HSK1 2.0",
-          type: "PDF",
-          url: "https://drive.google.com/file/d/1na6SDt09iP5BXP_A5NIRlHssvcJnK6Q2/preview"
-        },
-        {
-          label: "Sách luyện viết chữ Hán (bản cũ)",
-          type: "PDF",
-          url: "https://drive.google.com/file/d/19TbFFgdNzkT8TawTR8SMcucDrUz1zMXg/preview"
-        }
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" },
+        { label: "Sách bài tập", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
       ],
       audios: [
-        { name: "Audio Giáo trình chính HSK1 2.0", url: "https://drive.google.com/drive/folders/12EQ8W68YrXDOYlLkasH-PxpTe4XyvlRh?usp=drive_link" },
-        { name: "Audio Sách bài tập HSK1 2.0", url: "https://drive.google.com/drive/folders/1S8T234-xMaDMlnZ4rYTVeF8qVpsylxkx?usp=drive_link" }
-        // Thêm dòng tương tự cho các bài tiếp theo. File .mp3 đặt trong assets/audio/
-      ]
-    },
-         {
-      id: "hsk2-0-HSK-2",
-      title: "HSK 2.0 — HSK 2",
-      category: "Giáo trình chuẩn HSK 2.0",
-      description: "Ngữ âm, 300 từ vựng nền tảng và các mẫu câu giao tiếp cơ bản.",
-      materials: [
-        {
-          label: "Giáo trình chính HSK2 2.0",
-          type: "PDF",
-          // Dán link Google Drive dạng "preview" hoặc link file .pdf trực tiếp vào đây
-          url: "https://drive.google.com/file/d/1FPmP2gOgYkFa6DPAosVFTeY4dywYmMb4/preview"
-        },
-        {
-          label: "Sách bài tập HSK2 2.0",
-          type: "PDF",
-          url: "https://drive.google.com/file/d/1j1RG-hnisLINyzmsvSVdkkYymYyp7ts-/preview"
-        },
-        {
-          label: "Sách luyện viết chữ Hán HSK2 (bản cũ)",
-          type: "PDF",
-          url: "https://drive.google.com/file/d/1wOtEKholcpwz3Rrhc_rKpMcfggw3ZdPK/preview"
-        }
-      ],
-      audios: [
-        { name: "Audio Giáo trình chính HSK2 2.0", url: "https://drive.google.com/drive/folders/1o0XcaYw8GzXPzHc5Lhr2hBbtx0-Yna_4?usp=drive_link" },
-        { name: "Audio Sách bài tập HSK2 2.0", url: "https://drive.google.com/drive/folders/1iM-xUR7tPykdKlutx8A0vdfDS5R2cVpu?usp=drive_link" }
-        // Thêm dòng tương tự cho các bài tiếp theo. File .mp3 đặt trong assets/audio/
+        { name: "Bài 1 — Chào hỏi 你好", src: "assets/audio/hsk1-bai1.mp3" },
+        { name: "Bài 2 — Giới thiệu", src: "assets/audio/hsk1-bai2.mp3" }
       ]
     },
     {
-      id: "hsk3-0-so-cap-1",
+      id: "hsk2",
+      title: "HSK 2 — Giáo trình chuẩn HSK 2.0",
+      category: "Giáo trình chuẩn HSK2 2.0",
+      description: "300 từ vựng, các mẫu câu thông dụng trong đời sống.",
+      materials: [
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
+      ],
+      audios: [
+        { name: "Bài 1 — Gia đình", src: "assets/audio/hsk2-bai1.mp3" }
+      ]
+    },
+    {
+      id: "hsk3",
+      title: "HSK 3 — Giáo trình chuẩn HSK 2.0",
+      category: "Giáo trình chuẩn HSK3 2.0",
+      description: "600 từ vựng, bắt đầu học các đoạn văn ngắn.",
+      materials: [
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
+      ],
+      audios: []
+    },
+    {
+      id: "hsk4-ha",
+      title: "HSK 4 Hạ — Giáo trình chuẩn HSK 2.0",
+      category: "Giáo trình chuẩn HSK4 hạ 2.0",
+      description: "900 từ vựng, luyện đọc hiểu và viết đoạn văn.",
+      materials: [
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
+      ],
+      audios: []
+    },
+    {
+      id: "hsk4-thuong",
+      title: "HSK 4 Thượng — Giáo trình chuẩn HSK 2.0",
+      category: "Giáo trình chuẩn HSK4 thượng 2.0",
+      description: "Tiếp nối cấp 4 Hạ, mở rộng từ vựng và ngữ pháp.",
+      materials: [
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
+      ],
+      audios: []
+    },
+    {
+      id: "hsk5-ha",
+      title: "HSK 5 Hạ — Giáo trình chuẩn HSK 2.0",
+      category: "Giáo trình chuẩn HSK5 hạ 2.0",
+      description: "2500 từ vựng, đọc hiểu văn bản dài và viết luận.",
+      materials: [
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
+      ],
+      audios: []
+    },
+    {
+      id: "hsk5-thuong",
+      title: "HSK 5 Thượng — Giáo trình chuẩn HSK 2.0",
+      category: "Giáo trình chuẩn HSK5 thượng 2.0",
+      description: "Hoàn thiện kỹ năng đọc viết cấp độ 5.",
+      materials: [
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
+      ],
+      audios: []
+    },
+    {
+      id: "hsk6-ha",
+      title: "HSK 6 Hạ — Giáo trình chuẩn HSK 2.0",
+      category: "Giáo trình chuẩn HSK6 hạ 2.0",
+      description: "5000+ từ vựng, đọc báo, xem tin tức bằng tiếng Trung.",
+      materials: [
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
+      ],
+      audios: []
+    },
+    {
+      id: "hsk6-thuong",
+      title: "HSK 6 Thượng — Giáo trình chuẩn HSK 2.0",
+      category: "Giáo trình chuẩn HSK6 thượng 2.0",
+      description: "Hoàn thiện toàn bộ hệ thống HSK 2.0 cấp 6.",
+      materials: [
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
+      ],
+      audios: []
+    },
+    
+    // === CÁC KHÓA HỌC KHÁC (GIỮ NGUYÊN) ===
+    {
+      id: "hsk30",
       title: "HSK 3.0 — Sơ cấp 1 (Cấp 1)",
       category: "Giáo trình chuẩn HSK 3.0",
       description: "Bám sát khung năng lực HSK 3.0 mới, 500 từ vựng cấp 1–2.",
       materials: [
-        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" },
-        { label: "Sách bài tập", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
       ],
       audios: [
-        { name: "Bài 1 — Ôn tập", src: "assets/audio/hsk3-0-bai1.mp3" }
+        { name: "Bài 1 — Ôn tập", src: "assets/audio/hsk30-bai1.mp3" }
       ]
     },
     {
-      id: "han-ngu-quyen-1",
+      id: "hanngu",
       title: "Hán ngữ — Quyển 1",
       category: "Giáo trình Hán ngữ",
-      description: "Giáo trình Hán ngữ kinh điển, luyện đủ 4 kỹ năng nghe – nói – đọc – viết.",
+      description: "Giáo trình Hán ngữ kinh điển, luyện đủ 4 kỹ năng.",
       materials: [
-        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" },
-        { label: "Sách luyện viết chữ Hán", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
       ],
       audios: []
     },
     {
-      id: "boya-so-cap-1",
+      id: "boya",
       title: "Boya Hán ngữ — Sơ cấp 1",
       category: "Giáo trình Boya",
-      description: "Giáo trình Boya dành cho người mới bắt đầu, chú trọng hội thoại thực tế.",
+      description: "Giáo trình Boya dành cho người mới bắt đầu.",
       materials: [
-        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" },
-        { label: "Sách bài tập", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
       ],
       audios: []
     },
     {
-      id: "msutong-so-cap-1",
+      id: "msutong",
       title: "Msutong Hán ngữ — Sơ cấp 1",
       category: "Giáo trình Msutong",
-      description: "Giáo trình Msutong dùng cho sinh viên quốc tế, tốc độ vừa phải, nhiều bài luyện tập.",
+      description: "Giáo trình Msutong dùng cho sinh viên quốc tế.",
       materials: [
-        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" },
-        { label: "Sách bài tập", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
+        { label: "Giáo trình chính", type: "PDF", url: "https://drive.google.com/file/d/FILE_ID/preview" }
       ],
       audios: []
     }
-  ],
+  ]
+};
 
   /* ------------------------------------------------------------------
      2) TRÒ CHƠI — mỗi khối {...} là một trò chơi HTML tự tạo
