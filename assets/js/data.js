@@ -19,7 +19,6 @@ const CONTENT = {
           "Giáo trình Boya"
           "Giáo trình Msutong"
      ------------------------------------------------------------------ */
-const CONTENT = {
   courses: [
     // === CÁC KHÓA HỌC HSK 2.0 (CẤP ĐỘ CỤ THỂ) ===
     {
@@ -162,8 +161,7 @@ const CONTENT = {
       ],
       audios: []
     }
-  ]
-};
+  ],
 
   /* ------------------------------------------------------------------
      2) TRÒ CHƠI — mỗi khối {...} là một trò chơi HTML tự tạo
